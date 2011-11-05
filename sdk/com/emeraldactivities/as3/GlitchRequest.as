@@ -56,7 +56,10 @@
 		
 		private function handleFailure(e:IOErrorEvent):void 
 		{
-			var response:Object = JSON.decode(URLLoader(e.currentTarget).data);
+			var response:Object = {
+				'ok': 0,
+				'error': 'method not found'
+			};
 			
 			this.dispatchEvent(new GlitchResponse(FAILURE, false, false, response));
 		}
